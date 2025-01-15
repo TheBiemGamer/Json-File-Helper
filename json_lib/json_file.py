@@ -19,14 +19,12 @@ from jsonschema import validate, ValidationError
 class json_file():
     def __init__(self, file: Optional[Union[Path, str]] = None):
         self.json_file: Optional[Union[Path, str]] = file
-        self._file_handle: Optional[TextIO] = None
 
     def __enter__(self) -> "json_file":
         return self
 
     def __exit__(self, exc_type, exc_value, traceback) -> None:
-        if self._file_handle:
-            self._file_handle.close()
+        pass
 
     def _resolve_file(self, file: Optional[Union[Path, str]] = None) -> Union[Path, str]:
         if file:
@@ -49,15 +47,13 @@ class json_file():
 
     @property
     def data(self) -> dict:
-        file = self._validate_file(self.json_file)
-        with open(file, "r") as file_handle:
-            return json.load(file_handle)
+        return self.read()
 
     @property
     def is_empty(self) -> bool:
         try:
             data = self.data
-            return not bool(data)
+            return data == {} or not bool(data)
         except (FileNotFoundError, json.JSONDecodeError):
             return True
 
@@ -94,44 +90,43 @@ class json_file():
 
     def read(self, file: Optional[Union[Path, str]] = None) -> dict:
         self.json_file = self._validate_file(file)
-        self._file_handle = open(self.json_file, "r")
-        data = json.load(self._file_handle)
-        return data
+        with open(self.json_file, "r") as file_handle:
+            return json.load(file_handle)
 
     def write(self, data: Union[dict, list[dict]], file: Optional[Union[Path, str]] = None) -> Union[Path, str]:
         self.json_file = self._validate_file(file)
-
-        if isinstance(data, list):
-            try:
-                data = data[0]
-            except IndexError:
-                raise TypeError("Passed data is not a dict or a list[dict]!")
-            else:
-                if not isinstance(data, dict):
-                    raise TypeError("Passed data is not a dict or a list[dict]!")
-
-        self._file_handle = open(self.json_file, "w")
-        json.dump(data, self._file_handle, indent=4)
-
+        
+        if isinstance(data, dict):
+            pass
+        elif isinstance(data, list):
+            if not all(isinstance(item, dict) for item in data):
+                raise TypeError("All items in a list must be dicts!")
+        else:
+            raise TypeError("Passed data must be a dictionary or a list of dictionaries!")
+        
+        with open(self.json_file, "w") as file_handle:
+            json.dump(data, file_handle, indent=4)
+            
         return self.json_file
 
     def append(self, data: Union[dict, list[dict]], file: Optional[Union[Path, str]] = None) -> Union[Path, str]:
         self.json_file = self._validate_file(file)
-
         try:
             file_data = self.data
         except (FileNotFoundError, json.JSONDecodeError):
             file_data = []
 
-        match file_data:
-            case list():
-                file_data.append(data)
-            case dict():
-                file_data.update(data)
-            case _:
-                raise ValueError(f"Can't append {type(file_data)} to a json file!")
+        if isinstance(file_data, list):
+            file_data.append(data)
+        elif isinstance(file_data, dict):
+            if not isinstance(data, dict):
+                raise ValueError(f"Can't append non-dict to a JSON dictionary!")
+            file_data.update(data)
+        else:
+            raise ValueError(f"Unsupported JSON structure: {type(file_data)}")
 
         return self.write(file_data, self.json_file)
+
 
     def pretty_print(self) -> None:
         data = self.data
