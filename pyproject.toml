@@ -5,12 +5,16 @@ description = "A class for easier json file usage."
 authors = [
     {name = "TheBiemGamer",email = "47662596+TheBiemGamer@users.noreply.github.com"}
 ]
+license = "MIT"
+repository = "https://github.com/TheBiemGamer/json-lib"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
     "jsonschema (>=4.23.0,<5.0.0)"
 ]
 
+[tool.poetry.repositories]
+pypi = { url = "https://pypi.org" }
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
