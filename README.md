@@ -14,13 +14,18 @@ A Python class for easier JSON file handling. This utility provides a streamline
 
 ## Installation
 
-### Clone the Repository
+### Automatic installation via PyPi
+```bash
+pip install json_file_helper
+```
+
+### Or manual installation
 ```bash
 git clone https://github.com/your-repo/json-helper.git
 cd json-helper
 ```
 
-### Install Dependencies
+#### Install Dependencies
 This module uses the `jsonschema` library. Install the requirements using `pip` or a package manager like Poetry:
 
 ```bash
@@ -35,14 +40,13 @@ poetry install
 ## Usage
 
 ### Importing the Module
-If the `json_lib` package is properly configured with `__init__.py`:
 ```python
-from json_lib import json_file
+from json_file_helper import json_file
 ```
 
 ### Creating an Instance
 ```python
-from json_lib import json_file
+from json_file_helper import json_file
 
 # Initialize with an optional file path
 jf = json_file("example.json")
@@ -53,6 +57,12 @@ jf = json_file("example.json")
 #### **1. Reading a JSON File**
 ```python
 data = jf.read()
+print(data)
+```
+
+Or with the data property:
+```python
+data = jf.data
 print(data)
 ```
 
@@ -119,7 +129,7 @@ with json_file("example.json") as jf:
 
 Here’s a complete example:
 ```python
-from json_lib import json_file
+from json_file_helper import json_file
 
 # Initialize with a file path
 jf = json_file("example.json")
@@ -128,7 +138,7 @@ jf = json_file("example.json")
 jf.write({"name": "Alice", "age": 25})
 
 # Read the file
-print(jf.read())
+print(jf.data)
 
 # Append new data
 jf.append({"city": "London"})
