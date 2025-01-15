@@ -91,7 +91,10 @@ class json_file():
     def read(self, file: Optional[Union[Path, str]] = None) -> dict:
         self.json_file = self._validate_file(file)
         with open(self.json_file, "r") as file_handle:
-            return json.load(file_handle)
+            data = json.load(file_handle)
+            if isinstance(data, list) and len(data) == 1 and isinstance(data[0], dict):
+                return data[0]
+            return data
 
     def write(self, data: Union[dict, list[dict]], file: Optional[Union[Path, str]] = None) -> Union[Path, str]:
         self.json_file = self._validate_file(file)

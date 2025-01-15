@@ -1,6 +1,6 @@
 [project]
 name = "json_file_helper"
-version = "0.1.1"
+version = "0.1.2"
 description = "Classes for easier file usage, currently only json is implemented."
 authors = [
     {name = "TheBiemGamer",email = "47662596+TheBiemGamer@users.noreply.github.com"}
