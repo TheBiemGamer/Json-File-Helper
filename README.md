@@ -1,8 +1,4 @@
-Here’s a `README.md` file for your `Json Helper` module:
-
----
-
-# Json Helper
+# JSON File Helper
 
 A Python class for easier JSON file handling. This utility provides a streamlined interface for reading, writing, appending, and validating JSON files, along with additional helper properties and methods.
 

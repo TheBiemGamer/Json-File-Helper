@@ -1,6 +1,0 @@
-attrs==24.3.0
--e git+https://github.com/TheBiemGamer/json-lib.git@2896a733d70db39e63d512eed378a50756f37ba7#egg=json_lib
-jsonschema==4.23.0
-jsonschema-specifications==2024.10.1
-referencing==0.35.1
-rpds-py==0.22.3

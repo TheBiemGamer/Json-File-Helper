@@ -1,6 +1,6 @@
 import unittest, os, json
 from pathlib import Path
-from json_lib.json_file import json_file
+from json_file_helper.json_file import json_file
 
 class TestJsonFile(unittest.TestCase):
     def setUp(self):
