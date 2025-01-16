@@ -2,6 +2,8 @@
 
 A Python class for easier JSON file handling. This utility provides a streamlined interface for reading, writing, appending, and validating JSON files, along with additional helper properties and methods.
 
+[![PyPI - Version](https://img.shields.io/pypi/v/json_file_helper?style=flat&logo=python)](https://pypi.org/project/json_file_helper/)
+
 ## Features
 
 - **Read JSON files** with automatic file validation.

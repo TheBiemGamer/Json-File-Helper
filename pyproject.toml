@@ -3,7 +3,7 @@ name = "json_file_helper"
 version = "0.1.2"
 description = "Classes for easier file usage, currently only json is implemented."
 authors = [
-    {name = "TheBiemGamer",email = "47662596+TheBiemGamer@users.noreply.github.com"}
+    {name = "TheBiemGamer",email = "biemgamer@pm.me"}
 ]
 license = "MIT"
 readme = "README.md"
@@ -14,6 +14,7 @@ dependencies = [
 
 [project.urls]
 "Source Code" = "https://github.com/TheBiemGamer/JsonFileHelper"
+Homepage = "https://thebiemgamer.github.io/JsonFileHelper/"
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
