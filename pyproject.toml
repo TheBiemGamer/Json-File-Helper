@@ -13,7 +13,7 @@ dependencies = [
 ]
 
 [project.urls]
-"Source Code" = "https://github.com/TheBiemGamer/json-file-helper"
+"Source Code" = "https://github.com/TheBiemGamer/JsonFileHelper"
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
