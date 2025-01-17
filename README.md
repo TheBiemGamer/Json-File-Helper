@@ -1,18 +1,18 @@
 # JSON File Helper
 
-A Python class for easier JSON file handling. This utility provides a streamlined interface for reading, writing, appending, and validating JSON files, along with additional helper properties and methods.
+A Python class that makes working with JSON files simpler. It provides an easy way to read, write, add to, and check JSON files, along with some extra helpful methods and features.
 
 [![PyPI - Version](https://img.shields.io/pypi/v/json_file_helper?style=flat&logo=python)](https://pypi.org/project/json_file_helper/)
 
 ## Features
 
 - **Read JSON files** with automatic file validation.
-- **Write JSON data** (as dictionaries or lists of dictionaries) to files.
-- **Append data** to existing JSON files, supporting both dictionaries and lists.
-- **Clear JSON files** by resetting their content.
+- **Write JSON data** as dictionaries or lists of dictionaries.
+- **Append data** to existing JSON files.
+- **Clear JSON files**.
 - **Validate JSON schema** using the `jsonschema` library.
-- Access **properties** like `keys`, `values`, `length`, `is_empty`, `size`, and `exists`.
-- Pretty print JSON data for better readability.
+- Access **properties** like `data` (alias for `read`), `keys`, `values`, `length`, `is_empty`, `size`, and `exists`.
+- Pretty print data.
 
 ## Installation
 
@@ -28,8 +28,9 @@ cd json-helper
 ```
 
 #### Install Dependencies
-This module uses the `jsonschema` library. Install the requirements using `pip` or a package manager like Poetry:
+Install the requirements with `pip` or with `poetry`:
 
+Pip:
 ```bash
 pip install -r requirements.txt
 ```
