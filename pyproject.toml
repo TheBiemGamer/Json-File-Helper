@@ -14,7 +14,7 @@ dependencies = [
 
 [project.urls]
 "Source Code" = "https://github.com/TheBiemGamer/JsonFileHelper"
-Homepage = "https://thebiemgamer.github.io/JsonFileHelper/"
+Homepage = "https://github.com/TheBiemGamer/Json-File-Helper"
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
