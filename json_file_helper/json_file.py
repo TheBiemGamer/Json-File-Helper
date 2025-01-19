@@ -61,7 +61,9 @@ class json_file():
     def size(self) -> int:
         if self.json_file and Path(self.json_file).exists():
             return Path(self.json_file).stat().st_size
-        raise FileNotFoundError(f"The file '{self.json_file}' doesn't exist!")
+        elif self.json_file:
+            raise FileNotFoundError(f"The file '{self.json_file}' doesn't exist!")
+        raise ValueError("No file was specified!")
 
     @property
     def keys(self) -> list:
