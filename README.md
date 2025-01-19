@@ -23,7 +23,7 @@ pip install json_file_helper
 
 ### Or manual installation
 ```bash
-git clone https://github.com/your-repo/json-helper.git
+git clone https://github.com/TheBiemGamer/Json-File-Helper.git
 cd json-helper
 ```
 
