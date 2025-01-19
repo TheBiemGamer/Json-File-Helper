@@ -132,7 +132,6 @@ class json_file():
 
         return self.write(file_data, self.json_file)
 
-
     def pretty_print(self) -> None:
         data = self.data
         pprint(data)
